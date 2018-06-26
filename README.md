@@ -19,9 +19,9 @@ gradle run
 
 ## 2.사용방법 
 
-1. query.xml 파일에 사용하던 query로 변경한다. 혹은 사용하던 query xml 파일을 resources 폴더에 옮겨 놓은 후에 그 위치를 mybatis-config.xml에 반영한다. 
+1. query.xml 파일에 사용하던 query로 변경 혹은 사용하던 query xml 파일을 resources 폴더에 옮겨 놓은 후에 그 위치를 mybatis-config.xml에 반영
 
-2. 추출하고 싶은 Query id를 반영하여 소스를 수정한다. 
+2. 추출하고 싶은 Query id를 반영하여 소스를 수정 
 
 ```java
 
@@ -36,4 +36,4 @@ obj.put("date1", "2018-08-06");
 
 ```
 
-3. 프로그램을 실행(gradle run)하면 sql 폴더에 관련 Query가 추출 된다. 
+3. 프로그램을 실행(gradle run)하면 sql 폴더에 관련 Query가 추출된다.
