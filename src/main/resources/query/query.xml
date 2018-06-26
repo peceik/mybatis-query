@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="query">
+	
+		
+	<select id="sample1" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		    
+	 select 
+		  d.retreat_id __id
+		  ,a.name __name
+		  ,c.name __dept_name
+		  ,a.phone __phone
+		  ,d.transfer_type __transfer_type
+		  ,e.name __except_type
+		  ,REPLACE(d.transfer_content1, ',', '') __transfer1
+		  ,d.transfer_content2 __transfer2
+		  , if(s1.stay_id is null, '숙박안함', '숙박') __stay1
+		  , if(s2.stay_id is null, '숙박안함', '숙박') __stay2
+		  , a.option1 __option1 
+		FROM 
+		  person a
+		  left outer join stay s1 on(s1.person = a.person_id and date_format(s1.stay_date , "%Y-%m-%d")=#{date1})
+		  left outer join stay s2 on(s2.person = a.person_id and date_format(s2.stay_date , "%Y-%m-%d")=#{date2})
+		  left outer join dept c on(c.dept_id = a.dept)  
+		  left outer join retreat d ON (d.retreat_id = a.retreat)
+		  left outer join except_type e ON(e.except_type_id = a.except_type)
+	
+	</select>
+	
+	
+	
+<!-- xml file 생성끝 -->
+	
+	
+
+</mapper>
